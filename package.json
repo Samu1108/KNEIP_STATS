@@ -1,0 +1,52 @@
+{
+  "name": "kneip-linux",
+  "version": "1.0.0",
+  "description": "App desktop per gestione centro Kneip",
+  "main": "main.js",
+  "author": "Samuele Sartori",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build": "electron-builder --linux --arm64",
+    "build:pi": "electron-builder --linux --arm64"
+  },
+  "build": {
+    "appId": "com.samuelesartori.kneipsa",
+    "productName": "KNEIP S.A.",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "app/**/*"
+    ],
+    "asar": false,
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "defaultArch": "arm64",
+      "category": "Utility",
+      "icon": "icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "electron-is-dev": "^3.0.1"
+  }
+}
+
